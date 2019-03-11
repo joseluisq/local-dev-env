@@ -1,0 +1,29 @@
+version: "3.3"
+
+services:
+  app:
+    image: traefik:1.7-alpine
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - proxy_net
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - traefik-data:/etc/traefik/
+      - ./traefik-config.toml:/etc/traefik/traefik.toml
+      - ../../certs/dev.local.crt:/certs/dev.local.crt
+      - ../../certs/dev.local.key:/certs/dev.local.key
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+      restart_policy:
+        condition: on-failure
+
+networks:
+  proxy_net:
+    external: true
+
+volumes:
+  traefik-data:

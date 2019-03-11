@@ -1,0 +1,20 @@
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "dev.local"
+watch = true
+swarmmode=true
+exposedbydefault = false
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+  [entryPoints.https.tls]
+    [[entryPoints.https.tls.certificates]]
+      certFile = "/certs/dev.local.crt"
+      keyFile = "/certs/dev.local.key"
+  [entryPoints.eightzero]
+  address = ":8080"
