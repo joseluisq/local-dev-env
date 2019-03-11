@@ -5,7 +5,7 @@ certs:
 	-mkcert \
 		-cert-file certs/$(DOMAIN).crt \
 		-key-file certs/$(DOMAIN).key \
-		$(DOMAIN) "*.$(DOMAIN)" localhost 127.0.0.1 ::1
+		-install $(DOMAIN) "*.$(DOMAIN)" localhost 127.0.0.1 ::1
 .PHONY: certs
 
 network:
