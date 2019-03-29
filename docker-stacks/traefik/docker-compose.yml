@@ -12,8 +12,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - traefik-data:/etc/traefik/
       - ./traefik-config.toml:/etc/traefik/traefik.toml
-      - ../../certs/dev.local.crt:/certs/dev.local.crt
-      - ../../certs/dev.local.key:/certs/dev.local.key
+      - ../../certs/dev.local-cert.pem:/certs/dev.local-cert.pem
+      - ../../certs/dev.local-key.pem:/certs/dev.local-key.pem
     deploy:
       replicas: 1
       update_config:

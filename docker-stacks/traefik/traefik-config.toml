@@ -14,7 +14,7 @@ exposedbydefault = false
   address = ":443"
   [entryPoints.https.tls]
     [[entryPoints.https.tls.certificates]]
-      certFile = "/certs/dev.local.crt"
-      keyFile = "/certs/dev.local.key"
+      certFile = "/certs/dev.local-cert.pem"
+      keyFile = "/certs/dev.local-key.pem"
   [entryPoints.eightzero]
   address = ":8080"

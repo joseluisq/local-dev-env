@@ -3,8 +3,8 @@ DOCKER_PROXY_NETWORK=proxy_net
 
 certs:
 	-mkcert \
-		-cert-file certs/$(DOMAIN).crt \
-		-key-file certs/$(DOMAIN).key \
+		-cert-file certs/$(DOMAIN)-cert.pem \
+		-key-file certs/$(DOMAIN)-key.pem \
 		-install $(DOMAIN) "*.$(DOMAIN)" localhost 127.0.0.1 ::1
 .PHONY: certs
 
